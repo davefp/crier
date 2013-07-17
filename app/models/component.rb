@@ -1,6 +1,8 @@
 class Component < ActiveRecord::Base
 
   state_machine :status, :initial => :up do
+    store_audit_trail
+
     # states: up, down, faulty
     event :repaired do
       transition all => :up

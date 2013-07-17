@@ -35,6 +35,7 @@ group :doc do
 end
 
 gem 'state_machine'
+gem 'state_machine-audit_trail'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

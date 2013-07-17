@@ -1,5 +1,7 @@
 class ComponentsController < ApplicationController
 
+  protect_from_forgery only: :index
+
   respond_to :json, only: [:repaired]
 
   def index

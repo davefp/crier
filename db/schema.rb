@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130716183724) do
+ActiveRecord::Schema.define(version: 20130717151631) do
+
+  create_table "component_status_transitions", force: true do |t|
+    t.integer  "component_id"
+    t.string   "event"
+    t.string   "from"
+    t.string   "to"
+    t.datetime "created_at"
+  end
+
+  add_index "component_status_transitions", ["component_id"], name: "index_component_status_transitions_on_component_id"
 
   create_table "components", force: true do |t|
     t.string   "name"

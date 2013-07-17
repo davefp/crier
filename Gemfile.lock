@@ -100,6 +100,8 @@ GEM
       sprockets (~> 2.8)
     sqlite3 (1.3.7)
     state_machine (1.2.0)
+    state_machine-audit_trail (0.1.3)
+      state_machine
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
@@ -135,6 +137,7 @@ DEPENDENCIES
   sdoc
   sqlite3
   state_machine
+  state_machine-audit_trail
   therubyracer
   turbolinks
   twitter-bootstrap-rails
