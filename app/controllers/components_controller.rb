@@ -6,6 +6,7 @@ class ComponentsController < ApplicationController
 
   def index
     @components = Component.all
+    @transitions = ComponentStatusTransition.order('created_at DESC').first(20)
   end
 
   def repaired
