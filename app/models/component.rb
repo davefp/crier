@@ -2,11 +2,11 @@ class Component < ActiveRecord::Base
 
   state_machine :status, :initial => :up do
     # states: up, down, faulty
-    event :repair do
+    event :repaired do
       transition all => :up
     end
 
-    event :crash do
+    event :crashed do
       transition all => :down
     end
 

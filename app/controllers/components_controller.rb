@@ -1,7 +1,33 @@
 class ComponentsController < ApplicationController
 
+  respond_to :json, only: [:repaired]
+
   def index
     @components = Component.all
+  end
+
+  def repaired
+    update(params[:id], 'repaired')
+  end
+
+  def crashed
+    update(params[:id], 'crashed')
+  end
+
+  def fault
+    update(params[:id], 'fault')
+  end
+
+  private
+
+  def update(id, status)
+    @component = Component.find(id)
+    @component.send(status)
+    if @component.save
+      head 200
+    else
+      head 500
+    end
   end
 
 end
