@@ -61,6 +61,10 @@ GEM
     minitest (4.7.5)
     multi_json (1.7.7)
     polyglot (0.3.3)
+    puma (2.3.2)
+      rack (>= 1.1, < 2.0)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -80,6 +84,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redis (3.0.4)
     ref (1.0.5)
     sass (3.2.9)
     sass-rails (4.0.0)
@@ -132,7 +137,10 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   less-rails
+  puma
+  quiet_assets
   rails (= 4.0.0)
+  redis
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3

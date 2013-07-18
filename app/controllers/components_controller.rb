@@ -1,4 +1,7 @@
+require 'down/sse'
+
 class ComponentsController < ApplicationController
+  include ActionController::Live
 
   protect_from_forgery only: :index
 
@@ -19,6 +22,19 @@ class ComponentsController < ApplicationController
 
   def fault
     update(params[:id], 'fault')
+  end
+
+  def stream
+    response.headers['Content-Type'] = 'text/event-stream'
+    sse = Down::SSE.new(response.stream)
+    redis = Redis.new
+    redis.subscribe('down:transitions') do |on|
+      on.message do |event, data|
+        sse.write data, event: 'update'
+      end
+    end
+  ensure
+    sse.close
   end
 
   private

@@ -37,6 +37,12 @@ end
 gem 'state_machine'
 gem 'state_machine-audit_trail'
 
+gem 'puma'
+
+gem 'redis'
+
+gem 'quiet_assets', :group => :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
