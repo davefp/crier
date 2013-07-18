@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Down::Application.config.secret_key_base = '22374a9638c1d2be5e8c154e3cd714fd991beffa7ca282517249e4e14aa5b3acda71dfdf0ccdad2b2b671af46d9e24e66fe246cfd376aa60700c1bfab9896414'
+Crier::Application.config.secret_key_base = '22374a9638c1d2be5e8c154e3cd714fd991beffa7ca282517249e4e14aa5b3acda71dfdf0ccdad2b2b671af46d9e24e66fe246cfd376aa60700c1bfab9896414'

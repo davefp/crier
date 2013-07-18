@@ -1,4 +1,4 @@
-Down::Application.routes.draw do
+Crier::Application.routes.draw do
   root 'components#index'
 
   put '/:id/repaired', to: 'components#repaired'

@@ -1,6 +1,6 @@
 require 'json'
 
-module Down
+module Crier
   class SSE
     def initialize io
       @io = io

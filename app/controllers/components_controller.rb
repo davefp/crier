@@ -1,4 +1,4 @@
-require 'down/sse'
+require 'crier/sse'
 
 class ComponentsController < ApplicationController
   include ActionController::Live
@@ -26,9 +26,9 @@ class ComponentsController < ApplicationController
 
   def stream
     response.headers['Content-Type'] = 'text/event-stream'
-    sse = Down::SSE.new(response.stream)
+    sse = Crier::SSE.new(response.stream)
     redis = Redis.new
-    redis.subscribe('down:transitions') do |on|
+    redis.subscribe('crier:transitions') do |on|
       on.message do |event, data|
         sse.write data, event: 'update'
       end

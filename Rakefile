@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Down::Application.load_tasks
+Crier::Application.load_tasks

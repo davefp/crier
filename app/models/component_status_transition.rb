@@ -7,6 +7,6 @@ class ComponentStatusTransition < ActiveRecord::Base
 
   def publish
     redis = Redis.new
-    redis.publish "down:transitions", self.to_json
+    redis.publish "crier:transitions", self.to_json
   end
 end
