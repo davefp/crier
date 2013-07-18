@@ -8,9 +8,9 @@ Crier is an open-source server status service. Try saying that three times fast.
 
 It allows you to quickly build a server status page that'll look a bit like this:
 
-* [status.shopify.com]
-* [status.github.com]
-* [status.heroku.com]
+* [status.shopify.com]()
+* [status.github.com]()
+* [status.heroku.com]()
 
 ## Features
 
