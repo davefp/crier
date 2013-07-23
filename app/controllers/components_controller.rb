@@ -1,5 +1,3 @@
-require 'crier/sse'
-
 class ComponentsController < ApplicationController
   include ActionController::Live
 
@@ -26,15 +24,15 @@ class ComponentsController < ApplicationController
 
   def stream
     response.headers['Content-Type'] = 'text/event-stream'
-    sse = Crier::SSE.new(response.stream)
     redis = Redis.new
     redis.subscribe('crier:transitions') do |on|
       on.message do |event, data|
-        sse.write data, event: 'update'
+        response.stream.write "data: #{JSON.dump(data)}"
+        response.stream.write "\n\n"
       end
     end
   ensure
-    sse.close
+    response.stream.close
   end
 
   private

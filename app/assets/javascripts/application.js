@@ -19,8 +19,29 @@
 jQuery(document).ready(function() {
   setTimeout(function() {
     var source = new EventSource('/stream');
-    source.addEventListener('update', function(e) {
-      window.location.reload();
+    source.addEventListener('message', function(e) {
+      // window.location.reload();
+      json = JSON.parse(JSON.parse(e.data));
+      domNode = $('#status-' + json.component_id);
+      domNode.html(json.to);
+      switch (json.to)
+      {
+      case 'up':
+        color = '#5bb75b';
+        break;
+      case 'down':
+        color = '#da4f49';
+        break;
+      case 'faulty':
+        color = '#faa732';
+        break;
+      }
+      domNode.animate({
+            backgroundColor: color
+        }, 300 );
+      domNode.animate({
+            backgroundColor: "white"
+        }, 1500 );
     });
   }, 1);
 });
